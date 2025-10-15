@@ -448,11 +448,18 @@
                         </div>
                     </div>
 
+                     @php
+                        $baseUrl = config('app.url');
+                        if (app()->environment('local')) {
+                            $baseUrl .= ':8000';
+                        }
+                    @endphp
+
                     <div class="footer-links">
                         <a href="{{ route('login') }}">
                             <i class="fa fa-user-plus mr-2"></i> Já tenho conta
                         </a>
-                        <a href="{{ url('/') }}">
+                        <a href="{{ $baseUrl }}">
                             <i class="fa fa-home mr-2"></i> Voltar para Home
                         </a>
                     </div>
