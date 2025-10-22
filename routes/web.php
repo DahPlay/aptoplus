@@ -286,7 +286,7 @@ Route::middleware('auth')->name('panel.')->group(function () {
         Route::post('/coupons/store', [CouponController::class, 'store'])
             ->name('store');
 
-        Route::put('/coupons/update/{id}', [CouponController::class, 'update'])
+        Route::post('/coupons/update/{id}', [CouponController::class, 'update'])
             ->name('update');
 
         Route::delete('/coupons/destroy/{id}', [CouponController::class, 'destroy'])

@@ -66,10 +66,14 @@ class CouponController extends Controller
 
     public function store(CouponRequest $request): JsonResponse
     {
+        $isActive = match ($request->validated()['is_active']) {
+            '1' => true,
+            '0' => false,
+        };
+
         $data = $request->validated();
 
-        $data['is_active'] = isset($data['is_active']) ? 1 : 0;
-
+        $data['is_active'] = $isActive;
 
         $coupon = $this->model->create($data);
 
@@ -105,7 +109,7 @@ class CouponController extends Controller
     public function update(CouponRequest $request): JsonResponse
     {
         $isActive = match ($request->validated()['is_active']) {
-            'on' => true,
+            '1' => true,
             '0' => false,
         };
 
