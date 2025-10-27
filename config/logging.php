@@ -54,17 +54,17 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single', 'discord'],
+            'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 
-        'discord' => [
-            'driver' => 'custom',
-            'via'    => MarvinLabs\DiscordLogger\Logger::class,
-            'level'  => 'debug',
-            'url'    => env('LOG_DISCORD_WEBHOOK_URL'),
-            'ignore_exceptions' => env('LOG_DISCORD_IGNORE_EXCEPTIONS', false),
-        ],
+        // 'discord' => [
+        //     'driver' => 'custom',
+        //     'via'    => MarvinLabs\DiscordLogger\Logger::class,
+        //     'level'  => 'debug',
+        //     'url'    => env('LOG_DISCORD_WEBHOOK_URL'),
+        //     'ignore_exceptions' => env('LOG_DISCORD_IGNORE_EXCEPTIONS', false),
+        // ],
 
         'single' => [
             'driver' => 'single',
@@ -133,6 +133,13 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+        'registration' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/registration/registration.log'),
+            'level' => 'debug',
+            'days' => 7,
         ],
     ],
 
