@@ -389,18 +389,20 @@ class OrderController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'planId' => 'required',
-            'orderId' => 'required',
+            'orderId' => 'required'
         ]);
 
         $planId = $validator->validated()['planId'];
 
-        if (auth()->user()->hasPlan($planId)) {
+        $plan = Plan::find($planId);
+        $order = $this->model->find($validator->validated()['orderId']);
+
+        dd($order->hasPlan($planId, $order->customer_id));
+
+        if ($order->hasPlan($planId)) {
             toastr('Este é o seu plano atual, escolha outro plano.', 'warning');
             return redirect()->back();
         }
-
-        $plan = Plan::find($planId);
-        $order = $this->model->find($validator->validated()['orderId']);
 
 
         // Lógica caso o plano for grátis ou zero
