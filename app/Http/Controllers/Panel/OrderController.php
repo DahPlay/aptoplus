@@ -397,8 +397,6 @@ class OrderController extends Controller
         $plan = Plan::find($planId);
         $order = $this->model->find($validator->validated()['orderId']);
 
-        dd($order->hasPlan($planId, $order->customer_id));
-
         if ($order->hasPlan($planId)) {
             toastr('Este é o seu plano atual, escolha outro plano.', 'warning');
             return redirect()->back();
