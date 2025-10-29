@@ -375,6 +375,9 @@ Route::middleware('auth')->name('panel.')->group(function () {
         Route::post('orders/changePlanStore', [OrderController::class, 'changePlanStore'])
             ->name('changePlanStore');
 
+		Route::put('/orders/updateCard/{order}', [OrderController::class, 'updateCard'])
+            ->name('updateCard');
+
         // Modais
         Route::get('/orders/create', [OrderController::class, 'create'])
             ->name('create');
@@ -396,9 +399,13 @@ Route::middleware('auth')->name('panel.')->group(function () {
 
         Route::get('/orders/changePlan/{id}', [OrderController::class, 'changePlan'])
             ->name('changePlan');
-    });
 
+        Route::get('/orders/showCards/{id}', [OrderController::class, 'showCards'])
+        	->name('showCards');
 
+	    Route::get('/order/changeCard/{id_order}', [OrderController::class, 'changeCard'])
+	        ->name('changeCard');
+	});
 });
 
 
@@ -429,6 +436,3 @@ Route::get('/api/fatura-atual', function () {
         'boleto_url' => $boletoUrl,
     ]);
 });
-
-
-

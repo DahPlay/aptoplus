@@ -1,0 +1,3 @@
+[2025-10-29 20:29:42] local.INFO: Tentando tokenizar cartão {"asaas_customer_id":"cus_000007165908","card_last4":"1218","holder":"teste153"} 
+[2025-10-29 20:29:43] local.INFO: Cartão tokenizado com sucesso {"asaas_customer_id":"cus_000007165908","token":"445c604f-68d3-4b3c-87de-db8f3667950e","brand":"MASTERCARD"} 
+[2025-10-29 20:29:44] local.INFO: Cartão e assinatura atualizados com sucesso  
