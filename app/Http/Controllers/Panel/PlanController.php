@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PlanRequest;
 use App\Models\Package;
 use App\Models\Plan;
+use App\Services\PaymentGateway\Connectors\AsaasConnector;
+use App\Services\PaymentGateway\Gateway;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,6 +32,14 @@ class PlanController extends Controller
 
     public function index(): View
     {
+        $adapter = app(AsaasConnector::class);
+        $gateway = new Gateway($adapter);
+
+        $asaasPaymentsFromActualSubscription = $gateway->subscription()->getPayments("sub_jvnvvidvyshf4bgb");
+
+        $hasReceivedPayment = collect($asaasPaymentsFromActualSubscription['data'])
+            ->contains(fn($payment) => $payment['status'] === 'RECEIVED' || $payment['status'] === 'CONFIRMED');
+
         return view($this->request->route()->getName());
     }
 
@@ -47,7 +57,7 @@ class PlanController extends Controller
                 'plans.priority',
                 'plans.is_active_telemedicine',
             ])
-            ->where('hidden', '!=', 'Sim');  // <-- adiciona esse filtro aqui
+            ->where('hidden', '!=', 'Sim');
 
         return DataTables::of($plans)
             ->addColumn('checkbox', function ($plan) {
@@ -467,6 +477,4 @@ class PlanController extends Controller
             'message' => 'Planos ocultados com sucesso.'
         ]);
     }
-
-
 }
