@@ -11,6 +11,7 @@ return [
     'project_name' => env('PROJECT_NAME', 'DahPlay'),
     'back_dash' => env('BACK_DASH', '/Auth-Panel/dist/img/background_home.jpg'),
     'simple_home' => env('SIMPLE_HOME', 'NAO'),
+    'simple_home_image' => env('SIMPLE_HOME_IMAGE', '/Auth-Panel/dist/img/simple_home_image.jpg'),
     'banner_overlay' => env('BANNER_OVERLAY', 'CLARO'),
     'telemedicina' => env('TELEMEDICINA', 'NAO'),
 
