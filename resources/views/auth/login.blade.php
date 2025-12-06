@@ -104,7 +104,7 @@
                         <div class="col-12">
                             <div class="social-auth-links text-center mb-3">
                                 <p style=" color: {{ config('custom.text_color_conta') }};">Não tem uma conta? <a
-                                        href="{{ config('app.url') . '#planos' }}" class=""
+                                        href="https://saude.aptoplus.com.br/#planos" class=""
                                         style=" color: {{ config('custom.text_color_cadastre') }};">Cadastre-se</a></p>
 
                             </div>
