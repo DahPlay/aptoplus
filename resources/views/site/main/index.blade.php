@@ -306,10 +306,10 @@
                     <img src="{{ config('custom.logo_1') }}" style="width: 30px;" alt="Logo">
                 </a>
             </div>
-
+<!-- 
             <div class="banner-logo-center">
                 <img src="{{ config('custom.logo_1') }}" alt="Logo">
-            </div>
+            </div> -->
         </div>
 
         <style>

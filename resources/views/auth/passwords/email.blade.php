@@ -32,7 +32,7 @@
         <div class="social-auth-links text-center mb-3">
             <p style="color: {{ config('custom.text_color_conta') }};">
                 Voltar para
-                <a href="{{ $baseUrl }}" style="color: {{ config('custom.text_color_cadastre') }};">Home</a>
+                <a href="{{ config('custom.portal_link') }}" style="color: {{ config('custom.text_color_cadastre') }};">Home</a>
             </p>
         </div>
 
