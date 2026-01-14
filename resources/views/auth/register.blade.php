@@ -488,7 +488,7 @@
                         <a href="{{ route('login') }}">
                             <i class="fa fa-user-plus mr-2"></i> Já tenho conta
                         </a>
-                        <a href="{{ $baseUrl }}">
+                        <a href="https://saude.aptoplus.com.br/">
                             <i class="fa fa-home mr-2"></i> Voltar para Home
                         </a>
                     </div>
